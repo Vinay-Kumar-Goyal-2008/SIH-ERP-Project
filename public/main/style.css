@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+@keyframes disp{
+    from{
+        background-color: #FFFFFF;
+        color: #111827;
+    }to{
+        background-color: #E0E7FF;
+        color: #1E3A8A;
+    }
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+.navbarlist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    background-color: #FFFFFF;
+}
+.navbarlist>li{
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111827;
+    font-family: 'Poppins', sans-serif;
+    height:auto;
+}
+.navbarlist>li:hover{
+    cursor: pointer;
+    animation: disp 0.5s ease 1;
+    background-color: #E0E7FF;
+    color: #1E3A8A;
+}
+.logo{
+    padding: 0;
+    margin: 0;
+}
+.logo>img{
+    padding-left: 3rem;
+    height: 10vh;
+}
+.main1{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.25rem;
+    background-color: #F9FAFB;
+    padding: 2rem 1.5rem;
+    max-width: 75rem;
+    justify-self: center;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.loginbutton>button{
+    background-color: #1E3A8A;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+}
+.loginbutton{
+    text-align: center;
+    margin-top: 2rem;
+}
+.main1>.text{
+    align-self: center;
+}
+.main1>.text>.mainheading>h1{
+    font-size: 1.75rem;
+    font-weight: 650;
+    color: #111827;
+    padding-bottom: 2rem;
+}
+.main1>.text>.subheading>h2{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #4B5563;
+}
+.main1image>img{
+    height: 20rem;
+    border-radius: 40px;
+}
+
+.main2{
+    background-color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    padding: 4rem 2rem;
+}
+.main2>.mainheading>h2{
+    font-size: 1.5rem;
+    font-weight: 650;
+    color: #111827;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.main2>.subheading>h3{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #111827;
+    text-align: center;
+}
+
+.featurecards>div>div{
+    background-color: #F9FAFB;
+    margin: 2rem;
+    padding: 2rem;
+    width: 30rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px  lightgray;
+}
+.featurecards>div{
+    display: flex;
+}
+.featurecards>div>div:hover{
+    background-color:#E0E7FF ;
+    cursor:default;
+}
+.feature1heading,.feature2heading,.feature3heading,.feature4heading,.feature5heading,.feature6heading,.feature7heading{
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+.box3{
+    justify-self: center;
+}
+
+.main3{
+    font-family: 'Poppins',sans-serif;
+    padding: 4rem 2rem;
+    background-color: #F9FAFB;
+    margin: 3rem;
+    border-radius: 30px;
+}
+.main3>.mainheading>h2{
+    font-size: 1.5rem;
+    font-weight: 650;
+    color: #111827;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.main3>.subheading>h3{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #111827;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.contentlist{
+    color: #4B5563;
+}
+.contentlist>li{
+    padding: 1rem 2rem;
+}

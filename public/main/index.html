@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Student Management System</title>
+    <link rel="stylesheet" href="/main/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">
+                <img src="data:image/webp;base64,UklGRlIiAABXRUJQVlA4IEYiAACwagCdASq9AOoAPp1Am0ilo6KhLfibSLATiWJu3V5tOnEkv56Dys+SfIaOncadWZhdm7/n+r7zAOfP5iPOd9Mn959F3qhvRg86D1jP7bgrP9l7Uv8t9sfpj44vZvul69GM/rE1IPmH3g/d/4L2s/u3/L8CfjV/heoF+Wf0D/Yek78z2MWwf6L9kfYC9gPpP/M/xXi8/MXqN9bf+l9w32Af0T+vf8v13/5Xgi/g/9t+wfwA/yz+yf9j/KfmF9MH87/6v8v/uP3J9on59/kv/Z/ofgJ/m/9s/7/+Q9qj/6e3b9rf/b7pP7F//VIv8RUpSlKUpSgkOXzVOL8UxCK5RG2JDH/MYdFf7Sj/6P//V55UX9bl5pnCLesT4xplICOvO+nH5bEMAN0aB0JDQpmSpYEdySByp+KS9kppWR7+HwwuTjIRw9vW//8iZlinU2OIe6gukHGOcawkFu+8FPykiTKfBqLwfT9+a4sI/mNb3DaaRvAwU+zSMfj+G9Srr0Bn+1mtz86SoAUktycNHAvz3mv9IAbpJmn8oP7c2463R16CzNO8qJCAvpAQLrDgGcckCXHaTCeDZCuGWllOGvl+wj6cjJVGEvVIzpVk5reAYjMsp32uk/95TUZ1Im5Ej83yA27GApIB0F/5fesvKNLOvUfPVQ1v9B3Xv698LgC5i5Uii/aLrptXKXiRaSebDuia3RHMqu0d6hUWG3onbeBTR+1vkzTMM0Hn8Y78IujRsvWdNwrIQczTu5/BvZKPfSjJLmR/qq2liCs9xTZol0l66vq2oJroOsOCFOTsuvf3VNEfBQ/1K9DF5I1xYzAYhBwhwC//cqfPgMaxINkFwy1C4vGBq/lHjLym93tmQrNcP2vl8KKZN5IFIUPLLHeYvHHAk5qt6629BanMa2EKuXSEOvhIP9pfpojYa5tPwv6/k+OooFZXa2emrkZMxCzjE4WpRkgEoOjlw8PpV+F1MnJ2e3AR+n1+IF5RetfSdBp5/5NR3/8wJnfLU5zmrA9x/VLKQ8eORv7CehCRQkzkMyHA/6Fiiv3oS74+Ketq2ZsaUsbtoOS1XcYuj33wT5epf9xblPSiA5zpZnEP3JZn7sxZ4a4ZKlqyv00O89EQ3uWMEtBCEI9vWxCEIQhCEIQhB/AAAP77IYAAACMSb8QfzFCLqEcbDcKxyAYVQExypjStEcsRdodJzZLvwXfxZsO+gh0KSTgb/iAuJjBJmGijxDjHWS6of83PBYXlVa/+xqvTYrrl7s8trdvAGKaTF4W74ke3DjMUxLBGPXJa4ZS49UXXcFjPdZdnGTmjCv/0Zx9zd/lEVdnBF1/bEHqFuLSa9E/MwmQKCyJYi5XyhX6mL9hQCtdBfJR+fBygKOszLi+uYk0rug3s17YAM1CO1sXIQ8/ob0IIpL4n6cpZJD4uUd0fFbWJzwNDstjaflJ1z5+a4HZ3nwDjYAhwUnVKoChbADr/YnhbLxbYIx1aE/D3gI6VMGlOQPVFRiVhOAJHlIytAuvNj+EirFihIEWOEAYLXWNyWya7H2Pb1HqNmTI9v4gpzSmlhSeyyAfP2WYy3DUSatC1eipWYgAdAuBjJe4kYOFI5ZBRBVY9KyCSxVBNFiXC9HpNUr6fxt/nDLO9ushIAO5ynKLC5h5Yw9cHZVNlD4rOF4Ti1qizy5CXUvqIE/BXjMZjJg66QVxEQNq46f0ICqK+lYl3gk9UM3Ob8QfIntLXKKd4xNPnLAUq3FxtAkOxUvWb3ogAldXZHZr1J52X2mxPDKDfvZkeW/Ph3DXGsUsLz/BqSGCfyzAY6gOG/kjezoeUyMObrCqi5gZoH2MLk2w04/Hq836kBlNqn+HZ8INh+HHL/WjPpDUMMNAIJq9v+B1JT5vYwWQ+3jk+YZSjGtx4JPhLZ7oyfZn23H/OptQyzsMBF8iaqftAKrY2XBD/ULn1lY41u014Lr6VfcKKJe/MLlQ6TXhET4/9g3CM8LPh8IiwDnirWZFcrW4wiqag8qrqbuS1mkTQQ3gkVQooCKH2nzVjswXgKv1+DMkCur1HERuBz7U7lzv5fk6WPK0nxZYlWEvYicFupjE3W+nNAtxPrvW0Zlv8KN56uZ1iHqpmgt6UpeR6CEVaB13H+Hi8L3/R+7sdLyGOuih1gsjG/81sXz3X2HcJ7bX5FArdr2yqqRTdQ7nECrx82WY8jxrgjZqaowKQqgV7Lf23qaBNtxyUXcKmZO5idq7rT2bLqEVGj2a2T5eEWzzc9HqzBA9Q0gieLrsxEkBBaYIp6jAMjDahUkF1OdX8rtk9ch0D57dnvz7DLiq+Msh8nclAeFj3ClE10BHz2lb4QkGg7/ytgjI/064kcG5CMdYFRXbc7dfqtQm9n1TkHuCJYfk8JJPriU3pkvM9N0QvFrjdf3IAXHLQRF41eF2n18eFPXwrAc2SyoRDVqYHpqog/GIIpzAj9InocaX+OGSc0+p4eFWVMiOyzB3wKqet8xj+sfpL6TfvWR/lqX0JtGg64rLbe8HzlMnPybIod3ps17OFrV6Kd/96+9L/vUA8UXVL3ENWxBE8gR4u2CSPBMM/Hy+0IuIxIH7uA0PtPfEAHNlh5lsOTt67tyCN7ydxzx4ULToUpokAptP1vKyl3cqcOCxOfCsWAPaHnXz6bWZLfbfWdOzxuiZ+RQNRslFI+gQraWn1exJvGfl6+ZNGFY8e7lT7ffaOcBRtL57vUGLMxuuneFXASKn3TlKsgLF8vtEUb3uSlymJBGmW8VoMAcP4AwidXVrBjB61/iTQJE+aY+VgdCDVF2kky5X3mx3z7pizcuyUERASCmoc5oeBFi5DArKSV4qVjr9MGbCcVdeyNzrkqA2QpbClcSszM+BZpFXuaoqJ3Ixw6BJvYEEhDcGNX0W3ohVnCPxFV9Z/XsgB2nyKsl31Hr8YU798w57/M9I1VEPOopWBpijXrvGo94bN2XWAdmqqEq0wOXIEsMxRXbqFl8Y2ip9fMEHsPI+4fpS7QVdAY/3WtWn8ENJqdF8aEwIPAAJLGzbWo2uaeEbX1DOjfjd/LAupGmkNfSvh40gxVu388CyasRzU/dM92W+yBXxj8kU6QoxJiB5vKG2nwsu5M6zJUZ/jmBZ10AAzOLDLTfbzVVLBYm0qVvaljPOC/UYSEColm0DCpK4xd6i9LMaOWMWiX3P49zXG8DH8VKAHft/Xh6V1iNm9GASlkonTP157xNJ9szGHN/e2/fpGazO1pFafET0vQq7EITyDwF60MubSskTbZWmVEqiTN4vN8eAvmaLio8JYHEZ4Blnc/gwWGF2wL5bCg+Ta/SyMxsCpQrOfjGwjdwmXAAO1P66Cf1Z1lqUkDzb7VlcGwnnHeHOB9+hddalOEZi30McaEZqXy98FLOUOQ6LWScjphsEbSWnzyGITgioY0rqwfIymMOK1cWi2fQqJuZhBMHdVzkXBtjwkwoOKAEllm3KlCyIu9Dn5wQzUP6+EYul1317Mtddr+xo5mfpcHRGRj0yvt2QfndbLB2o122m566qB4acpLMH6MDNw3onSUE6WH1jYtVD7Et5KCtqKp2RVmdCY22Z1x2l/31EdsRssnQ5wnYHugDJel5gbjMUgAZ1790cpQXMC6rnBFMdYsWyxBcUU5aWItvrpK/BpLGiXTcem2XYEZ1Cd5kJVdK0wE+xxhb7ZUIca0nMU+1auwoY5Gl62klWwJJw9na7KKqwNBQN7Ehl9ESkkcqtRdvOKEj1hpsm4NbCYEr50kenuQtFza5OG8h0p5u347Q4dETyMaQfuAW37LaXP2w17UywJYYHzbA+L/CQVkye0R99V+s1XhEDABFYoVFFEOPeyRn5EClrhn6P7YHWY0tL3BSqhQ+XlRbzaGsMGeTl8UIX9ffx2A7RMzTDewyaHiZky91QN2yafkf+GbQhEGdEhOphpK0pZHXhig8kYCoXGSW5u8wjoKEhn9hkaMBASzNfBSgeSbwGtkmzQMp4UY1M5R6bKgFZBLSQZhiCh+SZNwbvIDsbLQzFfWfGDl7cC9YCq2fmr8cjriIvMBhMIRxcUhKpUzO0TTh2632eaCLaRMw4fNcH//uQLAHLwRoI4yuiCsxWvQWgg99YOQ7ijnGkwvtYvvf25RW99jk0AErysUd5qewrcnQNZeCA4JPpMcyPpsjamDcIHZ5hwVV2151Atb2WNgVX1+4qKQ4Vt8Zb2HXqkva+Zps0O8HUcUh2JjDmcRXEsWiFT0pHkcvxRlSSPfwbKyz8z5jKs2wIYrlGvYYMZmE3OI3KAKYWA685SzGvFW3dBNflUT4cW6KM3XXzdMXLRl8luWhgPFDMwrrhmN7BToA4FsbxYwcEilnLSY8nGMTYyuXLoOGJCdLHxZ46AONDcPd5bHPlyUfIH1sIcX3NwVvvjOCAKJDcZL+AWArRYkfXNaX1AwFlJ7sikWQ4emgA1pe+7V6i+BWc7dAhS1Z+ScIr5MbhmFH8oHdeS8yrWWfEwNU6Lut4FGyZx6YYXkwrRlmTzuOKqlgSn9x2FvB3o9P5a/pMknDAB/gB0QQa9p0r9NMQe28bxsm1XjrUjT+khIQjfpCRDa0wRVmfBQBPvZpecXgcWw1wG4gOnuvETEXdAwu7uQ6JeJ5XG5z9ZAaipmsxBHXbQE3C/JECxspLu09p61Y2u38ZRzUOQOiBw16YhH/F+rRj1NJtdzEMXSMd4I8wZC9vY5nMi62i4hrd5DMmjQB618GgBK5oPUUcrkcrhxAO3Lj0ie/hf76mM6GODvm32TlabnNSt4ha8r6X5CHrvg0f6YR6Zkq2D2mjz4WBxMuUppEgbXZozoJbihWDGWQZ8bBEL+l/3AT1M+T4jt0jPmYgTzJyLqRwt+VWQ9py5pG9xBrejG6ArX9uTIhtMr0afR3Picheg2Q0km+xlfXehz3MsbkbS/+fuoxCv9qYCXq/rfSybElMFpKTNzRNVThzaLd9wUl0sWGAtWa0E0qVgpYJiQBb+VcYpISUTa9DJfZhIv1Ei4gqKxZ13FEn1Cp68wR3vYQYj9Gvaguo2B4bm6QHRqK6BtCxFoXXF/fK13aLyOtEMUlip7PnZuZ4swJZ1fmcjwvLYYxB065WsqDjdvFSz6gStpoAh6K4KABlBDid6moAiWf0D4cvOukZ0gPlOkJ+O/2arNG7bCACniCW7MaoM0wB3KIjiCTSe1z9hJey0/MVgm3lAQ1Xl5yvU0k/fQAkmHT35g3uj5QfNnouKlPOJ9XEz5E68/BJKl7FdGEC/b6CAMPWrFZHQ9mPUTMib2slX0JAz1ubMhlQSW1dR6ECkbTgQG90IL/LpXdOaKwU2F4QhecMpmPYBWS8PkFTrbKKD9YTIrjzIRorF/w2qWTbmehyatm7v61LB6116FLGfHSNaIfSCzJk/vE7LiVz1+hDkjkIiZsaF6dqvmeMOAzHYxRr6fyjOsr05yA3zn0eOZkCgYsvNX6u6dqY0SkSCBZwID8tOO3az5r1r46UomgJ+73KoP40+8g+wps+Zbx3ktBAGfszKLOsnLJ+gqWL9aMC6HYEp3Z6C5ucO7c4Izc1CEPV30maoOVFfuYiEFWF3SXBhCjba6124PyfkFgs2OewBqnfkoG2hN0KF2Wuddk3Cij5lgDzViOodb3D0AcFLeZ1Eq7XGlSnq/8D3xDgHq00Ogm29ZI74viNhcedD6epa23FUjXvjzQmLgBCBlG6sEC/XxaPUz6f9d7oyLhFdVXsUca+GxE8aGsM5pUCyldi/D9//q/pwZo/33nsGJG9WBxU36GkRl3pfgQD/vV+gx/T51MeY2SD6o+oCcLAU7P5Q+quGLEuy/LejyjX5Otz/Z7//9IDoMo9a+EWBj4uHAmDZHBZfCBnMw7np+2nBnba3UCsHb6AoFLd8sTOhRWbCgFK3LzqiEinXiD5oOOyor/DCcXn8s6EFHX2JoFnKsEKDcONJUav44B9VzTq8YxAU7tHr8kZZVLpAkfvgkfM/90TpUj2zqRMha66bgElsTJqxaXS/AGcmiR0hCOXmymGTq3criSu51Z17s3/iAP6LNuBJ11OHxyKsFwp4spCcgc+qxOsFmD/1j3J0lVP5M/t4lIZqJU6z4tj48BUF6zBt8RfKQlZiV6eOB+zctJ2lPHvDOt3iSsYVOLyVU9vr6Iun6khCXty9MSIO3EBl2mJZU0HH9ts/MTIbXgmOKPuGA9FktNR6VZOT/WGiN4w68hsbUhF/Zxb28/ccESOCkSWGxlnM8IBOORXBfWYMwJc9eVLOSxGQ9/Sd3Pf+N0Bhe2rXb9N/eHWYmwWZWurHQszUGdZ4BjVbX6BHQwfAeMu805GquEqrbsx1tTB4wXri4da9qTspHk4oZK9XJceyY9Lc/XDloxmVCun56D2RQp8VT5bnkhZOuQI9KgBKBUkWvqt0TuHKG0BUoiEaQ4dtLliRdw8NZ1oMtKUFlbrnq+eT8Vhp0+KmUWHT8IORKKpvTObBNLacCmiEHN04FBafuDqyUhQJljoLI0qMYkq/F9V8ZwnxFV7yPMNhua9Dh2Tt2zaPDU9Z0dX64EWgvI42TkpsfTG5woGZN1s73lcXce3531In95Y/4wa9dFx/VAOWuQhNxUvbYehqZvQrzbwJwZhIIjowrFfygo2VmLjpMwt/OoXmXZbl3G5cAtf5t+d2biTsHaeuKXA5yu6/K5ck5687/tbxzezyPnzeJ5ExZzv+VobvWmL2Ub0R7jgJBrFo3zf3zNO2k2XvFhgrYJFxYcz5Y6+qz4xiv5KCkYWfrA3uVt1rKzLO/UYv/PiVGX5KSNt/cg6a4jRgoT6/N5vAKiIp8ssaC+zp0NvddWDlFSEnI2jCuNPOYn5IaEQUVLV8xEV2u8f57pjjlyc3Ll1inNg/eK/3SDl1/g7tiWnn//v4ezyuw8kk8GWmBxFrdFEyfXHMMLOcR85ozz4VjjYl3j8iQxalb/4fPHnU5q4a98L/VbVyfFwW6x0NOOtxH+fnE/UQpCzoCnL53ncZrKGFA19r1rwNhG1t/Fn4Djs8uHxZxVeSigXMnJ1Zh48d5pZ7HTMsxiGVrn0cQOY33vURct1HT4uk9wBg28TYkAO6njXMKs1hU7fDmWOXOMnvq8qNk5z6Q5ZYbwXt1zba+rxOq/xuVpWcRXyPl+bkuEfVX0kFO9l76pZUqY6SLIdfJx2jKsBV8p6b9pDYyvfl25Ph9aqch7A0gfD7NaeojHO6cmIlgzMwlnBMazG31kKJ3wBGNJh/ALa69Bh1Tj5nH686nwdVfBekXPLjD4T3JeT7zHegJwixwb0ODANhaAnufrkgYswDBP2i10qvCYIE5G7c3CjbySwGbJ8VpqKJotFQZNXYGyf2WpOgf+bYMLEmaJGvP9uFuSvSEYE5rI89jv7N3bvQRhpqGhK3siG45Wr5DQdrZPmazUq2w9rb8Dw3FAx7p4aJD7RSOUx+EorXC6qF6QLfy0GkxuAh5KokD2sdF//+BuSoRbJKkO1v3eBBxn5wfgSCSQYXCLQ62dnaltNcLKBo9bXntkBe1WX9ZGm9cvNG2Fxz1+QbhE6CLIgcn7KYZjtWraXvJOFogTIg1uBi522Ols3/hYz/UDpVwdPS3gV1Dd1As/fUdSYH+ZrWIVoRpDDKj1F2EdC3cUibTbIMiLpdhmjllyL/ECasM60FTbLLy+Ft/3aG63Nl6TLulI+d5OuzF8Etmoy79wk4NlAwwl4850crcBxoQGUFWlgvKSPvuwt1hAQ9rbxQy1RGzd2s7TChVXOZrcU/cBlLDVvGS0bU53zndm+mPyFROZ3iUKvZHVUy1nlASRUoFwcCr3BTesQMsEpgD23VDNY9H5v5dYOYJ+GuFbhstmst6cber9xKNy4TNqGMGSZpOz7NWU4IP2+7GJujuzufKmOKBxSHYslCwRNIkY3t69JLImyu4mF2kNSzcJGF4a3//UYoEGDssx5C9C+6G6n5tBpIDjacghOrX3ZtLvk3g0KFWEWLPR/g5s1QCl77m5v9FiElkNBAGQfl9sGWndgUvmTf4csfkX9NXqhMNqIXtFtxHyLTzK6VdKz+wWe0TjcuH89o4GCoH9m53UG8vaAX0WA7Ls18Ll6isFpmbnAzW767dCPCq0SGU3znlSvNmuxJcI5ymyNo3uidUq/rlB75e6gVCVoQ0QKW76sYOpYYqM+kfERpYJdp1qDartNwZtLIHATqtcqIpxxGW6EASG0uKZDuuxH8QmrA7hriZmcUPhr1NmUsOleTlqBy3Zkz2tS0fb/o796CjSTmGZ/xxXwShgKpLJU85AONU+qg4BLftvDFVgjNkLP+g0YJeXKZzzHdhLtCgFlyM6oo+F33vNKWmdTrsywBxiIteEnDHzIRwJTlVOiC1pawKFc+WAtRp5m/a7onLeHl09gMHYHepr8jm2GPlZLme1nahiGk9ictMqGnyhHtHa8wIWrMiAzBVVSh0nC8s8Q/QFj3fwdQdgnGa0IDOP34REgIZgNeIQS1PHFSgjNL5aBnSCFkPvscSG5WjNz2NN8rnj/diMw9XI59EL50sPk6PnNoeENHoBv+yt5FKzc0hgTk4My2L7b9Ih8p3QViW4JAhNtEeYCkPGMV2aCuNalNFih46VHmuqytuRjiHmxEscKJH1M2KUMvuG9Qe55Oe8XZEvZqdZ1kIIhzJPsyfm3kp+YFEEXOWu5SszYl1Zrmk63vKHJ9rQITKSAg9Z1a5ZK6Rk8wr5O+SRToh332DXg2AbokNIurJGeBiJ+sA0ccd1rVA6O++9W2qVsHRt4oA2b7w1aj0KebIfn6G/1DN1zET2KUiF8fm9xh/CxU1NuOOdl+8wLotuNV6M1EPWpWbnIwdsHPXAcgq8B/p557c+xCeeUaOFMv/iKVF5t79uUuuYxNdJmS595KReZErU6eNg6g3p38HiipH7Q0vEF+TyBy+RqZrFTrOin/JbQybG05kjGza3HlsSAyfLxDYSh9iRDs1/0apdHhFjKql3xnFvlONnb9z/+fCb5gYlFWMsAW6Zl39zlnE3haX2O9DF36X194/zDci/VPFODa+K9Kk2mCLSh7wYHiVwaz7oZPUK0dOTQgzxuf8IqU+dUjWyzNa8r6DhhmMccxwIb20j4zHe1og4gycJhrka3CBI11UCZrTWd/WmlLr09Fq5eMrMumFKgs+FPEs4rM8UKZkv8luGDldL+mcAEkLbw6jcDjfBSgUf3DLOLbdFbqg/U4AAk6+EsfhsC6oyBKAx3MKw18iJVTrXkrTrJrqFDj4Y4XoabHiZZMdwOK1YhkWV7XMhXJC3rZdg0RkYmAyAfSPtsYXyInOod9BFZjh38lWaZwqjk/DG6fXjln72sgnDMdbcU5W8MoP28peKyKArZ8QgBsyA2QQeRsZWB16Hn8Ji4PeNcN+hC45+wTFCxbEVl1+ZRgaZ2iGugB4aKUJA8M0g0lL1n08oHfIB9wCZxE0RTdnRCqSmtkwVRyBojp09gsdamyvUDF5++kWpMKiudSpC2hxQVl+wBxqReOl3KiJCAsCzOjDUa16uUAlTBWA5rpOqjC0l36DUmWj7HlU9z3JS1O2JdmHx3y0ObEuMqa+SDvOYwP4yfwfnAwFQdEvpMDhEAKXotiz8O9qKC8QF21NECi0/tqraIcXgt9nrN7ouOneLNqi/PFWJlk8TRt4Rm98sHNW8rfwCux9/eYh3nb2SkhdUpsD4QcTxfvRYXc2NebZrGdvhPvT5Xx17GD1i1TOK/n3f+XmQPFFitwarLq6h7R6xS7gkJWunA5vrN6AJBmAm8eSZqs7yvO+lW+qWr/qrC1ZmMp2DSi3CVSGqmdPV/CZBINRTba8NV3zTA/lehkQu3Fhc+pVcICOGbC6RWwZHI0RvEC7GAAZgA0nMTYAIKXHVObZsD6w2dpPmtJzU/rtSx5UDL+9dJyBSTHvEMAfKUiY19YJYRR9GdknsvFFXftU8YItmWlN7jbZAHSu0MIQMWtkwOaAf9sTYIPw3e4Zd7zh5yjtLYvXe7eMV0TUF/wIv8rJ1ymAHIdWzIs3bQNELIUbAFXh94z7szeDSIjpBkr7jARu4B/nKM7/J99Ir+fVjx10jc6CpD3p8xN9nOscPR4xVte9m/2kXtXsl4hFbnAtBsONsvEhwC8EckDdcrCOhV5MFIyF3OD7WKfNNa0HIyjHPiT4muwdbhC86JNPPRlCFkF6HLfhJFB4ncVwASHtujmc/bgZSq1kKtZOMztSpMTQieM2rErgxXrkKsGcARnAVeFHHHBySWijexQFpu6tOy1ZjTne9M15/AzZcMup2z4bWwvqQYTMmaKg/bO+Y9SwlTUmnIfkfK/r18tTiqHfI5xUkB3tsgb8Ugy3GANIAg99BqfuYOiju8xvQrJV7oBfLFhuOCOx3uWNkMcdkAvC78AHVX3kqWNFdUVXyBnWNMCVExevtsFq5g0TWX+4Q9sJEi2V/gFuTmvSSm3lbwYIMONvDeMq7kKif62DeNu5p8CkMRFRt/Y0m7HzqljoBppLkvB/q3SgpeDxm+cx9DoPLsrmDB54RROmHZ1ppOQKfXeLUEUGvHJ/S52JA9/BH9NriGJo1lS0IK9qJTmp9GkboN58DS+HHsnkLdZn1YahlYyT2JCbyRKqlOw66O9elV7Nzck5hDPXvYIieHKguItn9V30wzduYm8N1tcQgkaD4hIbYhYmGLRcB22A9uyn/qUp59cMK9IH2fa9TJ/5PEfl1u+25u+q1DfgpIQnDK412lUPkh7Qwlrf5pkdqemSN6gd2LokLqbuYPxcpDgYFo90s3p9F4fD8LAWfe2Dxtfjlqm9y465NiJIkmpidxdFjDCNnwrbJs5gZyT0pO4Yz9LcvYBxeHw2fP8yTbS5vzRlI6lTAeQ/e4i+Z9/mv6r7/x0uqLZ10/ZWHrS54IQ7x6o2oGy6mgMV/k1qdCfFBCFHo4FiA90KCBvIbW/yJfEWL0wXWmpox3e+71JyzEEl45tj77gLnf34vemWXl3zkKoVFbvkdyWhG2fkSeuZ5I7TaBJFCVT/0OCWCwvQyCl+OMjnI3S0OLkM+W8+HjdXpCsLl6WGu4CILSq2X80PQ7LKi46aghjXwQGBN7DKXJvUaxKQcSyHPnlIYhTUc02m/1BVQM7dzdlylzG9w8YCk2M/+HLG4OWV3MJ1wqUck9BCG3XNtcrMaUdugwPm0rWPEzwkBFfL+PLMqTbpbrAyiKHJ/9cjTP2PkTMDnmOs4fbo9ZTgbiwgs4SnU4omuMvIekOWCds+jANq6oMKYbglmz6HJtCEAK1djsgCy+sX9M9nCG+rDsBFNzlJjohbBTN3nhb333xYS9OR/tiDTJuYexbaAuIPFvsTlknKjpm9gKZHB2ZyYG5OKKOXJ0eChVrpFU7ta4ozuC44flb8z7iiFPq2zWfjr/dbf6z8i2q8CHk0dei8ypn990Gjb2QReZxEg03Ain9vzZjdhDUsJNOahpNlVI+dptWiCZc73lZIO7Y0vkg4bybqBzyn+vt1mYmWvcix+3eVcCBwQz2XGH/qe3xDrZJhIWjEzwiKwzyrCa4ysttv03H2nSjzLlkLj3O5qbsLuruTQyC2a433NF1rioyX3qL5FH53Mlao3LKPju9qICSqPcAz+lRv3tdsGBAECpO8agumHZuokOWiACvBnz3bG9lvFgq/p9dLl7NvzhZnmDdQT6XgPmBm7UEd0ANTcAAAAAAAAAAAAAAAA=="
+                    alt="college logo">
+            </div>
+            <div class="navbar">
+
+                <ul class="navbarlist">
+                    <li id="home">Home</li>
+                    <li>About ERP</li>
+                    <li id="admin">Admin Login</li>
+                    <li id="student">Student Login</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="main1" data-aos="fade-up">
+            <div class="text">
+                <div class="mainheading">
+                    <h1>Welcome to DTU Student Portal</h1>
+                </div>
+                <div class="subheading">
+                    <h2>Access attendance, fees, library, and hostel services online</h2>
+                </div>
+                <div class="loginbutton">
+                    <button>Login Now</button>
+                </div>
+            </div>
+            <div class="main1image">
+                <img src="https://www.bing.com/th/id/OIP._PHlWmahqmRqXRioexYyBAHaE5?w=280&h=211&c=8&rs=1&qlt=90&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2"
+                    alt="college campus">
+            </div>
+        </div>
+        <div class="main2" data-aos="fade-up">
+            <div class="mainheading">
+                <h2>Key Features of DTU Student Portal</h2>
+            </div>
+            <div class="subheading">
+                <h3>Everything you need for academics and campus life, all in one place</h3>
+            </div>
+            <div class="featurecards">
+                <div class="box1">
+                    <div class="feature1">
+                        <div class="feature1heading">Attendance Tracking</div>
+                        <div class="feature1text">Monitor your attendance in real time and never miss a lecture. Keep
+                            track of your progress effortlessly.</div>
+                    </div>
+                    <div class="feature2">
+                        <div class="feature2heading">Fee Management</div>
+                        <div class="feature2text">Pay your fees securely online and track all your transactions in one
+                            place.</div>
+                    </div>
+                    <div class="feature3">
+                        <div class="feature3heading">Library Access</div>
+                        <div class="feature3text">Search, reserve, and borrow books quickly from your college library
+                            without any hassle.</div>
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="feature4">
+                        <div class="feature4heading">Hostel Management</div>
+                        <div class="feature4text">View your room allocation, submit requests, and check availability
+                            with ease.</div>
+                    </div>
+                    <div class="feature5">
+                        <div class="feature5heading">Timetable Management</div>
+                        <div class="feature5text">View your daily and weekly class schedule. Stay on top of lectures and
+                            labs effortlessly</div>
+                    </div>
+                    <div class="feature6">
+                        <div class="feature6heading">Semester Marks</div>
+                        <div class="feature6text">Check marks for each subject, track your performance across semesters,
+                            and download report cards</div>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="feature7">
+                        <div class="feature7heading">Digital ID</div>
+                        <div class="feature7text">Access your digital ID card, verify your identity on campus, and use
+                            it for library/hostel access</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main3" data-aos="fade-up">
+            <div class="mainheading">
+                <h2>About the Student Portal</h2>
+            </div>
+            <div class="subheading">
+                <h3>Connecting students to all campus services in one place</h3></div>
+            <div class="content">
+                <ol class="contentlist">
+                    <li>Our portal allows students to access attendance records, fee payments, library services, hostel management, and personal academic tools quickly and securely.</li>
+                    <li>Designed with simplicity and efficiency in mind, the portal helps students manage their campus life digitally</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+    <script src="/main/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTU ERP Student login Portal</title>
+    <link rel="stylesheet" href="/student_login/style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="navbar">
+                <ul class="navbarlist">
+                    <li>Home</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="logintopic">
+            Student Login
+        </div>
+        <div class="form">
+            <form action="" method="post">
+                <div class="username">
+                    <div class="label">
+                    <label for="usernasme">Enter Your Username:- </label>
+                    </div>
+                    <div class="usernameinput">
+                        <input type="text" name="username" id="username" placeholder="Enter Username Provided By college" required autocomplete="off">
+                    </div>
+                </div>
+                <div class="password">
+                    <div class="label">
+                        <label for="password">Enter Your Password:- </label>
+                        
+                    </div>
+                    <div class="passwordinput">
+                            <input type="password" name="password" id="password" placeholder="Enter Password Provided By college" required autocomplete="new-password">
+                            <img src="https://th.bing.com/th/id/OIP.KbLXzezykaJhOxmg4SrT3AHaHa?w=170&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="view image" id="viewpass">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.zODMTfE9sdQiHbxx47CngAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="hide" class="hide" id="hidepass">
+                    </div>
+                </div>
+                <div class="captcha">
+                    <div class="checkbox">
+                        <input type="checkbox" name="captcha" id="captcha" required>
+                    </div>
+                    <div class="label">
+                            <label for="captcha">I am not a Robot</label>
+                        </div>
+                </div>
+                <div class="submitbutton">
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="/student_login/script.js"></script>
+</body>
+</html>

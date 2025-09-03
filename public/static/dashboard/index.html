@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="navbarhello">
+                <div class="hello">Hello</div>
+                <div class="name"></div>
+            </div>
+            <div class="logout">
+                <button>Log Out</button>
+            </div>
+        </nav>
+        <div class="quicklinks">
+            <ul class="quicklinkslist">
+                <li id="main0">Announcements</li>
+                <li id="main1">Summary</li>
+                <li id="main2">Profile</li>
+                <li id="main3">Attendance</li>
+                <li id="main4">Marks</li>
+                <li id="main5">Timetable</li>
+                <li id="main6">Fees Status</li>
+                <li id="main7">Library</li>
+                <li id="main8">Hostel</li>
+                
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main0">
+            <div class="announcements">
+                <h3>Announcements</h3>
+                <div class="announcementspara">
+                    <p>Welcome to the erp</p>
+                </div>
+            </div>
+        </div>
+        <div class="main1" data-aos="fade-up">
+            <div class="summary">
+                Your Summary
+            </div>
+            <div class="box1">
+                <div class="card1">
+                    <div class="card1topic topic">Attendance</div>
+                    <div class="card1text"></div>
+                </div>
+                <div class="card2">
+                    <div class="card2topic topic">Semester Marks</div>
+                    <div class="card2text"></div>
+                </div>
+                <div class="card3">
+                    <div class="card3topic topic">Pending Fees</div>
+                    <div class="card3text"></div>
+                </div>
+                <div class="card4">
+                    <div class="card4topic topic">Today's Classes</div>
+                    <div class="card4text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main2" data-aos="fade-up">
+            <div class="profile">
+                Your Profile
+            </div>
+            <div class="profileview">
+                <div class="box1profview">
+                    <div class="name">
+                        <div class="heading">Name:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="gender">
+                        <div class="heading">Gender:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="branch">
+                        <div class="heading">Branch:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="section">
+                        <div class="heading">Section:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="semester">
+                        <div class="heading">Semester:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="email">
+                        <div class="heading">Email:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="mobile">
+                        <div class="heading">Mobile:- </div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="editprofilebutton">
+                <button>Edit Profile</button>
+            </div>
+                </div>
+                <div class="box2profview">
+                    <div class="qrcode"></div>
+                    <div class="studentid">Student Id : - </div>
+                </div>
+                
+            </div>
+            
+            <div class="editprofileform hide">
+                <form action="" method="post">
+                    <div class="name">
+                        <div class="label">
+                            <label for="name">Name:- </label>
+                        </div>
+                        <div class="input">
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="gender">
+                        <div class="label">
+                            <label for="gender">Gender:- </label>
+                        </div>
+                        <div class="input">
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="email">
+                        <div class="label">
+                            <label for="email">Email:- </label>
+                        </div>
+                        <div class="input">
+                            <input type="email" required>
+                        </div>
+                    </div>
+                    <div class="mobile">
+                        <div class="label">
+                            <label for="mobile">Mobile:- </label>
+                        </div>
+                        <div class="input">
+                            <input type="number" required>
+                        </div>
+                    </div>
+                    <div class="editprofilesubmitbutton">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="main3" data-aos="fade-up">
+            <div class="attendanceheading">
+                Your Subject Wise attendance
+            </div>
+            <div class="attendance">
+                <div class="topic">
+                    <div>Subject Name</div>
+                    <div>Total lectures</div>
+                    <div>Lectures Attended</div>
+                    <div>Percentage</div>
+                </div>
+            </div>
+            <div class="attendancegraph">
+
+            </div>
+        </div>
+        <div class="main4" data-aos="fade-up">
+            <div class="markstopic">
+                Marks
+            </div>
+            <div class="marks">
+
+            </div>
+        </div>
+        <div class="main5" data-aos="fade-up">
+            <div class="timetabletopic">
+                Timetable
+            </div>
+            <div class="timetable">
+                <table>
+                    <thead>
+                        <th>Day</th>
+                        <th>8-9</th>
+                        <th>9-10</th>
+                        <th>10-11</th>
+                        <th>11-12</th>
+                        <th>12-1</th>
+                        <th>1-2</th>
+                        <th>2-3</th>
+                        <th>3-4</th>
+                        <th>4-5</th>
+                    </thead>
+                    <tbody class="Monday">
+                    </tbody>
+                    <tbody class="Tuesday">
+                    </tbody>
+                    <tbody class="Wednesday">
+                    </tbody>
+                    <tbody class="Thursday">
+                    </tbody>
+                    <tbody class=Friday">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="main6" data-aos="fade-up">
+            <div class="feestopic">
+                Fees Status
+            </div>
+            <div class="feestable">
+                <table>
+                    <thead>
+                        <th>Amount</th>
+                        <th>Semester</th>
+                        <th>Status</th>
+                        <th>Transaction Id</th>
+                        <th>Print</th>
+                    </thead>
+                    
+                </table>
+            </div>
+            <div class="pendingfees">
+                <div class="pendingfeestopic">Pending Fees</div>
+                <div class="pendingfeesamount"></div>
+                <div class="pendingfeespaymentbutton">
+                    <button>Pay Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="main7" data-aos="fade-up">
+            <div class="librarytopic">Your Library Info</div>
+            <div class="librarytable">
+                <table>
+                    <thead>
+                        <th>Book</th>
+                        <th>Return Date</th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="main8" data-aos="fade-up">
+            <div class="hosteltopic">
+                Your Hostel Information
+            </div>
+            <div class="hosteldata">
+                <div class="allocatedhosteldata">
+                    <div class="allocatedhosteltopic">Allocated Hostel</div>
+                    <div class="allocatedhostelvalue"></div>
+                </div>
+                <div class="allocatedroomdata">
+                    <div class="allocatedroomtopic">Allocated Room</div>
+                    <div class="allocatedroomvalue"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/dashboard/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init()
+    </script>
+</body>
+
+</html>
