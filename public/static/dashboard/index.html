@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="30">
+    <meta name="author" content="Vinay Kumar Goyal">
+    <meta name="keywords" content="ERP dtu system smart education prototype">
+    <meta name="description" content="It is an erp system produced for dty under smart education theme as a prototype">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/static/dashboard/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
 </head>
 
 <body>
@@ -32,10 +37,25 @@
                 <li id="main6">Fees Status</li>
                 <li id="main7">Library</li>
                 <li id="main8">Hostel</li>
+                <li id="documents">Your Documents</li>
                 
             </ul>
         </div>
     </header>
+    <div id="chatbot">
+  <div id="chatbotHeader" onclick="toggleChat()">AI Chatbot</div>
+  <div id="chatbotBody">
+    <div class="messages" id="messages"></div>
+    <div class="input-container">
+      <input type="text" id="userInput" placeholder="Ask about student..." />
+      <button id="sendBtn" onclick="sendMessage()">Send</button>
+    </div>
+    <div class="answerofchatbot">
+        
+    </div>
+  </div>
+</div>
+  </div>
     <main class="main">
         <div class="main0">
             <div class="announcements">
@@ -168,6 +188,8 @@
             <div class="attendancegraph">
 
             </div>
+            <div class="lowattendance"></div>
+            <div class="attendanceqrcode"></div>
         </div>
         <div class="main4" data-aos="fade-up">
             <div class="markstopic">
@@ -203,7 +225,9 @@
                     </tbody>
                     <tbody class="Thursday">
                     </tbody>
-                    <tbody class=Friday">
+                    <tbody class="Friday">
+                    </tbody>
+                    <tbody class="Saturday">
                     </tbody>
                 </table>
             </div>

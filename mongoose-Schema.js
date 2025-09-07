@@ -15,7 +15,8 @@ let model=new mongoose.Schema({
             subject:String,
             lectures_conducted:Number,
             lectures_attended:Number,
-            percentage:Number
+            percentage:Number,
+            total_lectures:Number
         }   
     ],
     fees:{

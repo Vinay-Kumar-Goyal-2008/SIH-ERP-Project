@@ -4,10 +4,10 @@ const session = require('express-session')
 const cors = require('cors')
 const PDFDocument = require("pdfkit");
 const model = require('./mongoose-Schema.js')
-const adminschema=require('./mongoose-Schema-admin.js')
+const adminschema = require('./mongoose-Schema-admin.js')
 const axios = require('axios')
-const crypto= require('crypto')
-const qr_code=require('qrcode')
+const crypto = require('crypto')
+const qr_code = require('qrcode')
 mongoose.connect('mongodb://localhost:27017/schooldata')
 let path = require('path')
 let app = express()
@@ -22,11 +22,11 @@ app.use(
         secret: "Vinay Kumar Goyal",
         resave: false,
         saveUninitialized: false,
-        cookie: { secure: false,maxAge:1000*60*20 },
-        rolling:true
+        cookie: { secure: false, maxAge: 1000 * 60 * 20 },
+        rolling: true
     })
 )
-let activetokens={}
+let activetokens = {}
 function islogged(req, res, next) {
     if (req.session.student) {
         return next()
@@ -34,11 +34,11 @@ function islogged(req, res, next) {
         res.sendFile(__dirname + '/notauth.html')
     }
 }
-function isadminlogged(req,res,next){
-    if (req.session.admin){
+function isadminlogged(req, res, next) {
+    if (req.session.admin) {
         return next()
-    }else{
-        res.sendFile(__dirname+'/notauth.html')
+    } else {
+        res.sendFile(__dirname + '/notauth.html')
     }
 }
 app.get('/', (req, res) => {
@@ -147,125 +147,116 @@ app.post('/downloadreceipt', islogged, async (req, res) => {
         }
     })
 })
-app.post('/payfees',islogged,async (req,res)=>{
-    let updres=await model.updateOne({id:req.session.student},{
-        $set:{'fees.amount_due':0,
-            'fees.current_fee_status':'Paid',
+app.post('/payfees', islogged, async (req, res) => {
+    let updres = await model.updateOne({ id: req.session.student }, {
+        $set: {
+            'fees.amount_due': 0,
+            'fees.current_fee_status': 'Paid',
         },
-        $push:{
-            'fees.payment_history':{
-                semester:req.body.semester , 
-                transaction_status: 'Success', 
-                transaction_id: req.body.previd+1, 
+        $push: {
+            'fees.payment_history': {
+                semester: req.body.semester,
+                transaction_status: 'Success',
+                transaction_id: req.body.previd + 1,
                 amount: req.body.amount
             }
         }
     })
-    if (updres.acknowledged=true){
-        res.json({status:200})
-    }else{
-        res.json({status:404})
+    if (updres.acknowledged = true) {
+        res.json({ status: 200 })
+    } else {
+        res.json({ status: 404 })
     }
-    })
-app.post('/logout',islogged,(req,res)=>{
+})
+app.post('/logout', islogged, (req, res) => {
     req.session.destroy()
-    res.json({status:200})
+    res.json({ status: 200 })
 })
 
-app.get('/admin_login',(req,res)=>{
-    res.sendFile(__dirname+'/public/admin_login/index.html')
+app.get('/admin_login', (req, res) => {
+    res.sendFile(__dirname + '/public/admin_login/index.html')
 })
 
-app.post('/adminloginsubmitcheck',async (req,res)=>{
-    let admindata=await adminschema.findOne({username:req.body.username,password:req.body.password})
-    if (admindata){
-        req.session.admin=admindata.admin_id
-        if (admindata.role=='admin'){
-            res.redirect('/superadmin_dashboard')
-        }else if (admindata.role=='librarian'){
-            res.redirect('/librarian_dashboard')
-        }else if (admindata.role=='warden'){
-            res.redirect('/warden_dashboard')
-        }else{
-            res.json({status:404})
-        }
-    }else{
-        res.json({status:404})
+app.post('/adminloginsubmitcheck', async (req, res) => {
+    let admindata = await adminschema.findOne({ username: req.body.username, password: req.body.password })
+    if (admindata) {
+        req.session.admin = admindata.admin_id
+        res.redirect('/admin_dashboard')
+    } else {
+        res.json({ status: 404 })
     }
 })
-
-app.get('/warden_dashboard',isadminlogged,async (req,res)=>{
-    res.sendFile(__dirname+'/public/static/warden_dashboard/index.html')
+app.get('/admin_dashboard',isadminlogged,(req,res)=>{
+    res.sendFile(__dirname+'/public/static/admin_dashboard/index.html')
 })
 
-app.post('/wardendatafetch',isadminlogged,async (req,res)=>{
-    let admindata=await adminschema.findOne({admin_id:req.session.admin})
-    res.json(admindata)
-})
-
-app.post('/countstudents',isadminlogged,async (req,res)=>{
-    let countstud=await model.countDocuments({'hostel.allocated_room':{$ne:'N/A'},'hostel.allocated_hostel':{$ne:'N/A'}})
-    res.json({countstud:countstud})
-})
-
-app.post('/countroomsandhostel',isadminlogged, async (req,res)=>{
-    let count_rooms=  (await model.distinct('hostel.allocated_room')).length
-    let count_hostels= (await model.distinct('hostel.allocated_hostel')).length
-    res.json({count_rooms:count_rooms,count_hostels:count_hostels})
-})
-
-app.post('/uniquehostels',isadminlogged,async (req,res)=>{
-    let uniquehostels=await model.distinct('hostel.allocated_room')
-    res.json({hostels:uniquehostels})
-})
-
-app.post('/findstudentdata',isadminlogged,async (req,res)=>{
-    let studentdata= await model.findOne({id:req.body.id})
-    if (studentdata){
-        res.json({status:200,studentdata:studentdata})
-    }else{
-        res.json({status:404})
-    }
-})
-
-app.post('/updatehosteldata',isadminlogged,async (req,res)=>{
-    let resp=await model.updateOne({id:req.body.id},{
-        'hostel.allocated_hostel':req.body.allocated_hostel,
-        'hostel.allocated_room':req.body.allocated_room
+app.post('/studentqrcode', islogged, async (req, res) => {
+    let data = await model.findOne({ id: req.body.id }, {
+        _id: 0,
+        id: 1,
+        name: 1,
+        branch: 1,
+        section: 1,
+        mobile: 1,
+        email: 1
     })
-    if (resp){
-        res.json({status:200})
-    }else{
-        res.json({status:404})
-    }
+    qr = await qr_code.toDataURL(JSON.stringify(data))
+    res.json({ qr: qr })
+
 })
 
-app.post('/studentqrcode',islogged,async (req,res)=>{
-    let data=await model.findOne({id:req.body.id},{
-        _id:0,
-        id:1,
-        name:1,
-        branch:1,
-        section:1,
-        mobile:1,
-        email:1,
-        attendence:1,
-        'hostel.allocated_hostel':1,
-        'hostel.allocated_room':1
-    })
-    let token=crypto.randomBytes(8).toString('hex')
-    let expiry=Date.now()+30000
-    activetokens[token]={studid:req.session.student,expiry:expiry}
-    data.token=token
-    qr=await qr_code.toDataURL(JSON.stringify(data))
-    res.json({qr:qr})
-
+app.post('/attendanceqrcode', islogged, async (req, res) => {
+    let token = crypto.randomBytes(8).toString('hex')
+    let expiry = Date.now() + 10000
+    activetokens[token] = { studid: req.session.student, expiry: expiry }
+    data = { url: `http://localhost:3000/updateattendance?studid=${req.body.id}&ts=${Date.now()}&token=${token}` }
+    data.token = token
+    qr = await qr_code.toDataURL(data.url)
+    res.json({ url: qr })
 })
 setInterval(() => {
-  const now = Date.now();
-  for (let t in activetokens) {
-    if (activetokens[t].expiry < now){
-         delete activetokens[t];}
-  }
-}, 60000)
+    const now = Date.now();
+    for (let t in activetokens) {
+        if (activetokens[t].expiry < now) {
+            delete activetokens[t];
+        }
+    }
+}, 10000)
+
+app.post('/updateattendance', async (req, res) => {
+    let id = req.query.studid
+    let token=req.query.token
+    if (token in activetokens){
+let data = await model.updateOne({ id: id },
+        { $inc: { 'attendence.0.lectures_conducted': 1, 'attendence.0.lectures_attended': 1 } }
+    )
+    const student = await model.findOne({ id });
+
+    const lecturesConducted = student.attendence[0].lectures_conducted;
+    const lecturesAttended = student.attendence[0].lectures_attended;
+
+    const percentage = (lecturesAttended / lecturesConducted) * 100
+
+    await model.updateOne(
+        { id },
+        { $set: { 'attendence.0.percentage': percentage } }
+    );
+
+    res.json({status:200})
+    }else{
+        res.json({status:404})
+    }
+    
+})
+
+app.post('/askchatbot',islogged,async (req,res)=>{
+    let prompt= req.body.prompt
+    studdata=await model.findOne({id:req.session.student})
+    data={student:studdata,prompt:prompt}
+    let ans=await axios.post('http://localhost:5001/askchat',data)
+    res.json({ans:ans.data.ans})
+})
+
+console.log(process.memoryUsage())
+
 app.listen(9000)
