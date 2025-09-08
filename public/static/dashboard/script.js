@@ -1,10 +1,15 @@
 
 async function studentdata() {
+    document.querySelector('main>div').style.display='none'
+    document.querySelector('.loadingdata').style.display='block'
     let student = await fetch('/student_data', {
         method: 'POST'
     })
     let res = await student.json()
-    console.log(res)
+    if (res.status=200){
+        document.querySelector('main>div').style.display='block'
+    document.querySelector('.loadingdata').style.display='none'
+    res=res.data
     document.querySelector('.name').innerText = res.name + ' ' + res.id
     let attendancelist = res.attendence
     let attendancesum = 0;
@@ -194,7 +199,9 @@ async function studentdata() {
         attendanceqr = await attendanceqr.json()
         document.querySelector('.attendanceqrcode').innerHTML = `<img src='${attendanceqr.url}' alt='attendance qr'>`
     }, 10000)
-
+    }else{
+        studentdata()
+    }
 }
 studentdata()
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO & Accessibility: Added a meta description -->
+    <meta name="description"
+        content="A comprehensive ERP dashboard for university management, including admissions, student information, financials, and more.">
+    <title>University ERP Dashboard</title>
+    <link rel="stylesheet" href="/static/admin_dashboard/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Performance: Made Google Fonts non-render-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>University ERP</h2>
+            </div>
+            <ul class="nav-list" id="sidebar-nav-list">
+                <li class="nav-item active" data-view="Dashboard">
+                    <span class="nav-icon" id="main0">🏠</span> Dashboard
+                </li>
+                <li class="nav-item" data-view="Admissions">
+                    <span class="nav-icon" id="main1">📝</span> Admissions
+                </li>
+                <li class="nav-item" data-view="Student Info">
+                    <span class="nav-icon" id="main2">👩‍🎓</span> Student Info
+                </li>
+                <li class="nav-item" data-view="Financial">
+                    <span class="nav-icon" id="main3">💰</span> Financial
+                </li>
+                <li class="nav-item" data-view="Hostel">
+                    <span class="nav-icon" id="main4">🏨</span> Hostel
+                </li>
+                <li class="nav-item" data-view="Library">
+                    <span class="nav-icon" id="main5">📚</span> Library
+                </li>
+                <li class="nav-item" data-view="Announcements">
+                    <span class="nav-icon" id="main6">📢</span> Announcements
+                </li>
+            </ul>
+
+        </nav>
+        <main class="main-content">
+            <div class="loadingdata">
+                <h2>Loading Data.....</h2>
+            </div>
+            <div class="main0">
+                <header class="main-header">
+                    <h1>Dashboard</h1>
+                </header>
+                <!-- Metric Cards -->
+                <div class="dashboard-grid">
+                    <div class="metric-card totalstudents">
+                        <h2>Total Students</h2>
+                        <div class="value"></div>
+                    </div>
+                    <div class="metric-card newstudents">
+                        <h2>New Admissions</h2>
+                        <div class="value">Comming Soon</div>
+                    </div>
+                    <div class="metric-card totalfeescollected">
+                        <h2>Fees Collected</h2>
+                        <div class="value"></div>
+                    </div>
+                    <div class="metric-card totalpendingfees">
+                        <h2>Pending Fees</h2>
+                        <div class="value"></div>
+                    </div>
+                </div>
+
+                <!-- Attendance Chart Placeholder -->
+                <div class="dashboard-panel">
+                    <h2>Overall Attendance</h2>
+                    <div class="placeholder-view">
+                        <h2>Attendance Chart</h2>
+                        <p>Chart will be rendered here using JS.</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <script src="/static/admin_dashboard/script.js"></script>
+
+</body>
+
+</html>

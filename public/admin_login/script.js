@@ -16,7 +16,7 @@ document.querySelector('form').addEventListener('submit',async (e)=>{
     e.preventDefault()
     let username=document.querySelector('.username input').value
     let password=document.querySelector('.password input').value
-    let res=await fetch('/adminloginsubmitcheck',{
+    let res=await fetch('/admin/adminloginsubmitcheck',{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
