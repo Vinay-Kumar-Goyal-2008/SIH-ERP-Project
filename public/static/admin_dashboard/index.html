@@ -89,6 +89,89 @@
                     </div>
                 </div>
             </div>
+            <div class="main1">
+                <header class="main-header">
+                    <h1>Admissions</h1>
+                </header>
+                <!-- Admissions Metric Cards -->
+                <div class="dashboard-grid">
+                    <div class="metric-card totalapplicants">
+                        <h2>Total Applications</h2>
+                        <div class="value"></div>
+                    </div>
+                    <div class="metric-card approved">
+                        <h2>Approved</h2>
+                        <div class="value"></div>
+                    </div>
+                    <div class="metric-card pending">
+                        <h2>Pending</h2>
+                        <div class="value"></div>
+                    </div>
+                    <div class="metric-card">
+                        <h2>Rejected</h2>
+                        <div class="value"></div>
+                    </div>
+                </div>
+
+                <!-- Admissions Table -->
+                <div class="dashboard-panel">
+                    <h2>Applications Overview</h2>
+                    <div class="toolbar">
+                        <input type="text" class="search-input wide" placeholder="Search by student name or ID">
+                        <select class="filter-select">
+                            <option value="">All Statuses</option>
+                            <option value="pending-review">Pending Review</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="student-table">
+                            <thead>
+                                <tr>
+                                    <th class="sortable">Student ID <span class="sort-arrow">⇅</span></th>
+                                    <th class="sortable">Name <span class="sort-arrow">⇅</span></th>
+                                    <th>Status</th>
+                                    <th class="sortable">Applied On <span class="sort-arrow">⇅</span></th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025001</td>
+                                    <td>Vinay Goyal</td>
+                                    <td><span class="status-badge status-pending-review">Pending Review</span></td>
+                                    <td>2025-09-01</td>
+                                    <td>
+                                        <button class="action-button primary">View</button>
+                                        <button class="action-button danger">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025002</td>
+                                    <td>Riya Sharma</td>
+                                    <td><span class="status-badge status-approved">Approved</span></td>
+                                    <td>2025-09-02</td>
+                                    <td>
+                                        <button class="action-button primary">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025003</td>
+                                    <td>Amit Kumar</td>
+                                    <td><span class="status-badge status-rejected">Rejected</span></td>
+                                    <td>2025-09-03</td>
+                                    <td>
+                                        <button class="action-button primary">View</button>
+                                    </td>
+                                </tr>
+                                <!-- More rows will be injected via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         </main>
         <script src="/static/admin_dashboard/script.js"></script>
