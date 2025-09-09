@@ -26,7 +26,7 @@ async function generateAdmissions(num = 50000) {
                     email: `user${i}@example.com`, // unique email
                     mobile: 6000000000 + i,       // unique mobile number
                     gender: chance.pickone(['Male', 'Female', 'Other']),
-                    admission_status: 'pending-review',
+                    admission_status: 'pending',
                     remarks: chance.sentence({ words: 5 }) // optional notes
                     // branch, section, semester left undefined for admin assignment
                 });

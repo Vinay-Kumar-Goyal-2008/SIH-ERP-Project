@@ -126,4 +126,4 @@ async function generateStudents(num = 10000) {
 }
 
 // Run the generator
-generateStudents(100000);
+generateStudents(30000);

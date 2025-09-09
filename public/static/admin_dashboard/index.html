@@ -107,7 +107,7 @@
                         <h2>Pending</h2>
                         <div class="value"></div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card rejected">
                         <h2>Rejected</h2>
                         <div class="value"></div>
                     </div>
@@ -117,58 +117,95 @@
                 <div class="dashboard-panel">
                     <h2>Applications Overview</h2>
                     <div class="toolbar">
-                        <input type="text" class="search-input wide" placeholder="Search by student name or ID">
-                        <select class="filter-select">
+                        <input type="text" class="search-input wide nameidadmsearch"
+                            placeholder="Search by student name or ID">
+                        <!-- <select class="filter-select">
                             <option value="">All Statuses</option>
                             <option value="pending-review">Pending Review</option>
                             <option value="approved">Approved</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select> -->
                     </div>
 
                     <div class="table-container">
-                        <table class="student-table">
+                        <table class="student-table admissionsstudentstable">
                             <thead>
                                 <tr>
-                                    <th class="sortable">Student ID <span class="sort-arrow">⇅</span></th>
-                                    <th class="sortable">Name <span class="sort-arrow">⇅</span></th>
+                                    <th class="sortable">Student ID</th>
+                                    <th class="sortable">Name</th>
                                     <th>Status</th>
-                                    <th class="sortable">Applied On <span class="sort-arrow">⇅</span></th>
+                                    <th class="sortable">Applied On</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2025001</td>
-                                    <td>Vinay Goyal</td>
-                                    <td><span class="status-badge status-pending-review">Pending Review</span></td>
-                                    <td>2025-09-01</td>
-                                    <td>
-                                        <button class="action-button primary">View</button>
-                                        <button class="action-button danger">Reject</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2025002</td>
-                                    <td>Riya Sharma</td>
-                                    <td><span class="status-badge status-approved">Approved</span></td>
-                                    <td>2025-09-02</td>
-                                    <td>
-                                        <button class="action-button primary">View</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2025003</td>
-                                    <td>Amit Kumar</td>
-                                    <td><span class="status-badge status-rejected">Rejected</span></td>
-                                    <td>2025-09-03</td>
-                                    <td>
-                                        <button class="action-button primary">View</button>
-                                    </td>
-                                </tr>
-                                <!-- More rows will be injected via JS -->
                             </tbody>
+
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="main2">
+                <div class="content-area">
+                    <div class="main-header">
+                        <h1>Already admitted Student Information</h1>
+                    </div>
+
+                    <div class="toolbar">
+                        <input type="text" placeholder="Search by id" class="search-input wide"
+                            id="student-search" value="null">
+                        <select class="filter-select branch" id="branch-filter">
+                            <option value="null">All Branches</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="ME">ME</option>
+                            <option value="CE">CE</option>
+                        </select>
+                        <select class="filter-select section" id="section-filter">
+                            <option value="null">All Sections</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                        <select class="filter-select semester" id="semester-filter">
+                            <option value="null">All Semesters</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                        <button class="action-button danger studinfosubmitt">Submit</button>
+                    </div>
+
+                    <div class="dashboard-panel">
+                        <div class="table-container">
+                            <table class="student-table" id="student-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th>Gender</th>
+                                        <th>Branch</th>
+                                        <th>Section</th>
+                                        <th>Semester</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="placeholder-view">
+                                        <td colspan="10">
+                                            <h2>No students loaded</h2>
+                                            <p>Use search or filters to find students.</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

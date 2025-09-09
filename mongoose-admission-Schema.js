@@ -8,7 +8,7 @@ const admissionSchema = new mongoose.Schema({
     gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
     admission_status: { 
         type: String, 
-        enum: ['pending-review', 'approved', 'rejected'], 
+        enum: ['pending', 'approved', 'rejected'], 
         default: 'pending-review' 
     },
     applied_on: { type: Date, default: Date.now },
