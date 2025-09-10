@@ -45,4 +45,4 @@ async function generateAdmissions(num = 50000) {
 }
 
 // Run the generator
-generateAdmissions(50000);
+generateAdmissions(5000);

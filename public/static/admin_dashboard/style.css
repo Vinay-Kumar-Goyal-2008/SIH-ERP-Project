@@ -426,4 +426,6 @@ body {
     color: var(--text-secondary);
 }
 
-
+.hide{
+    display: none;
+}
