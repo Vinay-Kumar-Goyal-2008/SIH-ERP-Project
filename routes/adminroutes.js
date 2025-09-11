@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const model = require('../mongoose-Schema.js')
 const admissions = require('../mongoose-admission-Schema.js')
 const hostels = require('../mongoose-hosteldata-schema.js')
+const announcements=require('../announcements-schema.js')
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
@@ -99,7 +100,10 @@ router.post('/addadmdata', isadminlogged, async (req, res) => {
         const randomsec = sec[Math.floor(Math.random() * sec.length)];
         let hostarr = (await hostels.findOne()).hostels
         const randomhost = hostarr[Math.floor(Math.random() * hostarr.length)].split('_')
+        let randomnum=Math.floor(Math.random()*1000)
         let adddata = await model.insertOne({
+            username:studdata.name.slice(0,4)+randomnum.toString(),
+            password:studdata.name.slice(0,4)+studdata.email.slice(3,6)+studdata.branch.slice(1,),
             name: studdata.name,
             email: studdata.email,
             mobile: studdata.mobile,
@@ -114,45 +118,101 @@ router.post('/addadmdata', isadminlogged, async (req, res) => {
             }
 
         })
-        if (adddata){
-            await admissions.deleteOne({student_id:tempid})
+        if (adddata) {
+            await admissions.deleteOne({ student_id: tempid })
             // try{
             //     sendEmail(studdata.email,'Admission in college',`Congratulations you have been admitted to the college and have been alloted hostel your hostel is ${randomhost[0]}, ${randomhost[1]}. Thank YOu`)
             // }catch{
             //     pass
             // }
-            res.json({status:200,hostel:randomhost})
-        }else{
-            res.json({status:404})
+            res.json({ status: 200, hostel: randomhost })
+        } else {
+            res.json({ status: 404 })
         }
     }
 })
 
-router.post('/deladmdata',isadminlogged,async (req,res)=>{
+router.post('/deladmdata', isadminlogged, async (req, res) => {
     let tempid = req.body.tempid
-    await admissions.deleteOne({student_id:tempid})
-    res.json({status:200})
+    await admissions.deleteOne({ student_id: tempid })
+    res.json({ status: 200 })
 })
 
-router.post('/allhostelsdata',isadminlogged,async (req,res)=>{
+router.post('/allhostelsdata', isadminlogged, async (req, res) => {
     res.json()
 })
 
-router.post('/hosteldataofstud',isadminlogged,async (req,res)=>{
-    let id=req.body.id
-    let studdata=await model.findOne({id:id})
-    res.json({status:200,data:studdata.hostel,name:studdata.name,id:id})
+router.post('/hosteldataofstud', isadminlogged, async (req, res) => {
+    let id = req.body.id
+    let studdata = await model.findOne({ id: id })
+    res.json({ status: 200, data: studdata.hostel, name: studdata.name, id: id })
 })
 
-router.post('/edithosteldata',isadminlogged,async (req,res)=>{
-    let id=req.body.id
-    let room=req.body.room
-    let hostel=req.body.hostel
-    let resp=await model.updateOne({id:id},{$set:{'hostel.allocated_hostel':hostel,'hostel.allocated_room':room}})
+router.post('/edithosteldata', isadminlogged, async (req, res) => {
+    let id = req.body.id
+    let room = req.body.room
+    let hostel = req.body.hostel
+    let resp = await model.updateOne({ id: id }, { $set: { 'hostel.allocated_hostel': hostel, 'hostel.allocated_room': room } })
+    if (resp) {
+        res.json({ status: 200 })
+    } else {
+        res.json({ status: 404 })
+    }
+})
+
+router.post('/libdataofstudent', isadminlogged, async (req, res) => {
+    let id = req.body.studid
+    let studlibdata = await model.findOne({ id: id })
+    if (studlibdata) {
+        res.json({ status: 200, id: id, name: studlibdata.name, borrowed_books: studlibdata.library.borrowed_books, due_data: studlibdata.library.due_date })
+    } else {
+        res.json({ status: 404 })
+    }
+})
+
+router.post('/issue-book', isadminlogged, async (req, res) => {
+    const today = new Date();
+    console.log(today)
+    const nextWeek = new Date();
+    nextWeek.setDate(today.getDate() + 7);
+    console.log(nextWeek)
+    let id = parseInt(req.body.id)
+    let book = req.body.bookname
+    let resp = await model.updateOne({ id: id }, { $push: { 'library.borrowed_books': book, 'library.due_date':nextWeek} })
+    console.log(resp)
     if (resp){
         res.json({status:200})
     }else{
         res.json({status:404})
     }
+})
+
+router.post('/returnbook',isadminlogged,async (req,res)=>{
+    let id=parseInt(req.body.id)
+    let studdata=await model.findOne({id:id})
+    let book=req.body.bookname
+    let due_date=studdata.library.due_date[studdata.library.borrowed_books.indexOf(book)]
+    let resp=await model.updateOne({id:id},{$pull:{'library.borrowed_books':book,'library.due_date':due_date}})
+    if (resp.acknowledged==true){
+        res.json({status:200})
+    }else{
+        res.json({status:404})
+    }
+})
+
+router.post('/announcementpost',isadminlogged,async (req,res)=>{
+    let date=new Date()
+    let announcementdata=req.body.announcement
+    let resp= await announcements.insertOne({ announcement: { desc: announcementdata, date: date } })
+    if (resp){
+        res.json({status:200})
+    }else{
+        res.json({status:404})
+    }
+})
+
+router.post('/logout',isadminlogged,async (req,res)=>{
+    req.session.destroy()
+    res.json({status:200})
 })
 module.exports = router;

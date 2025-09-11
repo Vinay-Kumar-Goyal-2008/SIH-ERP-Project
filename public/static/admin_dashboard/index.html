@@ -2,70 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO & Accessibility: Added a meta description -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="A comprehensive ERP dashboard for university management, including admissions, student information, financials, and more.">
+        content="A comprehensive ERP dashboard for university management, including admissions, student information, financials, and more." />
     <title>University ERP Dashboard</title>
-    <link rel="stylesheet" href="/static/admin_dashboard/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Performance: Made Google Fonts non-render-blocking -->
+    <link rel="stylesheet" href="/static/admin_dashboard/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
     </noscript>
 </head>
 
 <body>
-
     <div class="app-container">
-        <!-- Sidebar Navigation -->
         <nav class="sidebar">
-            <div class="sidebar-header">
+            <div class="sidebar-header additional-padding">
                 <h2>University ERP</h2>
             </div>
+            <div class="logoutbutton">
+                <button class="logout-admin">Logout</button>
+            </div>
             <ul class="nav-list" id="sidebar-nav-list">
-                <li class="nav-item active" data-view="Dashboard">
-                    <span class="nav-icon" id="main0">🏠</span> Dashboard
+                <li class="nav-item active" data-view="Dashboard" id="main0">
+                    <span class="nav-icon">🏠</span> Dashboard
                 </li>
-                <li class="nav-item" data-view="Admissions">
-                    <span class="nav-icon" id="main1">📝</span> Admissions
+                <li class="nav-item" data-view="Admissions" id="main1">
+                    <span class="nav-icon">📝</span> Admissions
                 </li>
-                <li class="nav-item" data-view="Student Info">
-                    <span class="nav-icon" id="main2">👩‍🎓</span> Student Info
+                <li class="nav-item" data-view="Student Info" id="main2">
+                    <span class="nav-icon">👩‍🎓</span> Student Info
                 </li>
-                <li class="nav-item" data-view="Hostel">
-                    <span class="nav-icon" id="main4">🏨</span> Hostel
+                <li class="nav-item" data-view="Hostel" id="main4">
+                    <span class="nav-icon">🏨</span> Hostel
                 </li>
-                <li class="nav-item" data-view="Library">
-                    <span class="nav-icon" id="main5">📚</span> Library
+                <li class="nav-item" data-view="Library" id="main5">
+                    <span class="nav-icon">📚</span> Library
                 </li>
-                <li class="nav-item" data-view="Announcements">
-                    <span class="nav-icon" id="main6">📢</span> Announcements
+                <li class="nav-item" data-view="Announcements" id="main6">
+                    <span class="nav-icon">📢</span> Announcements
                 </li>
             </ul>
-
         </nav>
         <main class="main-content">
-            <div class="loadingdata">
-                <h2>Loading Data.....</h2>
-            </div>
             <div class="main0">
-                <header class="main-header">
+                <header class="main-header section-padding">
                     <h1>Dashboard</h1>
                 </header>
-                <!-- Metric Cards -->
-                <div class="dashboard-grid">
+                <div class="dashboard-grid grid-padding">
                     <div class="metric-card totalstudents">
                         <h2>Total Students</h2>
                         <div class="value"></div>
                     </div>
                     <div class="metric-card newstudents">
                         <h2>New Admissions</h2>
-                        <div class="value">Comming Soon</div>
+                        <div class="value">Coming Soon</div>
                     </div>
                     <div class="metric-card totalfeescollected">
                         <h2>Fees Collected</h2>
@@ -76,54 +71,34 @@
                         <div class="value"></div>
                     </div>
                 </div>
-
-                <!-- Attendance Chart Placeholder -->
-                <div class="dashboard-panel">
+                <div class="dashboard-panel panel-padding">
                     <h2>Overall Attendance</h2>
-                    <div class="placeholder-view">
+                    <div class="placeholder-view centered-content">
                         <h2>Attendance Chart</h2>
                         <p>Chart will be rendered here using JS.</p>
                     </div>
                 </div>
             </div>
             <div class="main1">
-                <header class="main-header">
+                <header class="main-header section-padding">
                     <h1>Admissions</h1>
                 </header>
-                <!-- Admissions Metric Cards -->
-                <div class="dashboard-grid">
+                <div class="dashboard-grid grid-padding">
                     <div class="metric-card totalapplicants">
                         <h2>Total Applications</h2>
                         <div class="value"></div>
                     </div>
-                    <!-- <div class="metric-card approved">
-                        <h2>Approved</h2>
-                        <div class="value"></div>
-                    </div> -->
                     <div class="metric-card pending">
                         <h2>Pending</h2>
                         <div class="value"></div>
                     </div>
-                    <!-- <div class="metric-card rejected">
-                        <h2>Rejected</h2>
-                        <div class="value"></div>
-                    </div> -->
                 </div>
-
-                <!-- Admissions Table -->
-                <div class="dashboard-panel">
+                <div class="dashboard-panel panel-padding">
                     <h2>Applications Overview</h2>
-                    <div class="toolbar">
+                    <div class="toolbar toolbar-padding">
                         <input type="text" class="search-input wide nameidadmsearch"
-                            placeholder="Search by student name or ID">
-                        <!-- <select class="filter-select">
-                            <option value="">All Statuses</option>
-                            <option value="pending-review">Pending Review</option>
-                            <option value="approved">Approved</option>
-                            <option value="rejected">Rejected</option>
-                        </select> -->
+                            placeholder="Search by student name or ID" />
                     </div>
-
                     <div class="table-container">
                         <table class="student-table admissionsstudentstable">
                             <thead>
@@ -135,22 +110,19 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            </tbody>
-
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <div class="main2">
-                <div class="content-area">
-                    <div class="main-header">
+                <div class=" content-padding">
+                    <div class="main-header section-padding">
                         <h1>Already admitted Student Information</h1>
                     </div>
-
-                    <div class="toolbar">
+                    <div class="toolbar toolbar-padding">
                         <input type="text" placeholder="Search by id" class="search-input wide" id="student-search"
-                            value="null">
+                            value="null" />
                         <select class="filter-select branch" id="branch-filter">
                             <option value="null">All Branches</option>
                             <option value="CSE">CSE</option>
@@ -177,8 +149,7 @@
                         </select>
                         <button class="action-button danger studinfosubmitt">Submit</button>
                     </div>
-
-                    <div class="dashboard-panel">
+                    <div class="dashboard-panel panel-padding">
                         <div class="table-container">
                             <table class="student-table" id="student-table">
                                 <thead>
@@ -211,59 +182,97 @@
                 </div>
             </div>
             <div class="main4">
-                <!-- Hostel Metrics -->
-                <!-- <div class="dashboard-grid">
-                    <div class="metric-card">
-                        <h2>Total Rooms</h2>
-                        <div class="value">200</div>
-                    </div>
-                    <div class="metric-card">
-                        <h2>Occupied Rooms</h2>
-                        <div class="value">150</div>
-                    </div>
-                    <div class="metric-card">
-                        <h2>Vacant Rooms</h2>
-                        <div class="value">50</div>
-                    </div>
-                    <div class="metric-card">
-                        <h2>Pending Requests</h2>
-                        <div class="value">25</div>
-                    </div>
-                </div> -->
-
-                <!-- Hostel Allocation Table -->
-                <div class="dashboard-panel">
-                    <div class="main-header">
+                <div class="dashboard-panel panel-padding">
+                    <div class="main-header section-padding">
                         <h1>Hostel Information</h1>
                     </div>
-                    <div class="toolbar">
-                        <input type="text" class="search-input wide hostelstudidsearch" placeholder="Search by student ID">
+                    <div class="toolbar toolbar-padding">
+                        <input type="text" class="search-input wide hostelstudidsearch"
+                            placeholder="Search by student ID" />
+                        <button class="action-button primary hostelstudidsubmit">Submit</button>
                     </div>
-                    <button class="action-button primary hostelstudidsubmit">Submit</button>
-                
-                <div class="studhosteldata">
-
-                </div>
-                <button class="action-button primary edithosteldata hide">Edit</button>
-                <form class="announcement-form hide">
-        <div class="form-group">
-            <label for="allocated_hostel">Allocated Hostel</label>
-            <input type="text" id="allocated_hostel" name="allocated_hostel" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="allocated_room">Allocated Room</label>
-            <input type="text" id="allocated_room" name="allocated_room" class="form-control">
-        </div>
-        <div class="form-footer">
-            <button type="submit" class="action-button primary">Save</button>
-        </div>
-    </form>
+                    <div class="studhosteldata additional-padding"></div>
+                    <button class="action-button primary edithosteldata hide">Edit</button>
+                    <form class="announcement-form hide form-padding">
+                        <div class="form-group">
+                            <label for="allocated_hostel">Allocated Hostel</label>
+                            <input type="text" id="allocated_hostel" name="allocated_hostel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="allocated_room">Allocated Room</label>
+                            <input type="text" id="allocated_room" name="allocated_room" class="form-control" />
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="action-button primary">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
+            <div class="main5">
+                <div class="main-header section-padding">
+                    <h1>Student Library Management</h1>
+                </div>
+                <div class="content-padding">
+                    <div class="toolbar toolbar-padding">
+                        <input type="text" class="search-input wide libsearchbystudid" placeholder="Enter Student ID" />
+                        <button class="action-button primary search-button libsearchbystudidbutton">Search</button>
+                    </div>
+                    <div class="toolbar toolbar-padding">
+                        <button class="action-button primary issue-book-button">Issue Book</button>
+                    </div>
+                    <div class="table-container additional-padding">
+                        <table class="student-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Book Name</th>
+                                    <th>Due Date</th>
+                                    <th>Fine</th>
+                                    <th>Return</th>
+                                </tr>
+                            </thead>
+                            <tbody class="library-tbody">
+                                <!-- Book entries will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <form class="announcement-form hide issue-book-form">
+                        <div class="form-group">
+                            <label for="issue-student-id">Student ID</label>
+                            <input type="text" id="issue-student-id" name="student_id" class="form-control"
+                                placeholder="Enter Student ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="issue-book-name">Book Name</label>
+                            <input type="text" id="issue-book-name" name="book_name" class="form-control"
+                                placeholder="Enter Book Name">
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="action-button primary">Issue Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="main6">
+                <div class="content-area content-padding">
+                    <div class="main-header section-padding">
+                        <h1>Announcements</h1>
+                    </div>
+                    <div class="announcement-form form-padding">
+                        <textarea class="form-control textarea" placeholder="Write an announcement..."></textarea>
+                        <div class="form-footer">
+                            <button class="action-button primary">Post Announcement</button>
+                        </div>
+                    </div>
+                    <div class="announcements-list additional-padding">
+                        <!-- Announcements will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
         </main>
-        <script src="/static/admin_dashboard/script.js"></script>
-
+    </div>
+    <script src="/static/admin_dashboard/script.js"></script>
 </body>
 
 </html>

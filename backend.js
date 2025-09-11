@@ -6,7 +6,7 @@ const path = require('path');
 
 const studentRoutes = require('./routes/studentroutes'); // Student routes
 const admin = require('./routes/adminroutes'); // If you create an admin routes file later
-
+const announcements=require('./announcements-schema.js')
 mongoose.connect('mongodb://localhost:27017/schooldata');
 
 const app = express();
@@ -40,6 +40,11 @@ app.get('/admin_login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'admin_login', 'index.html'));
 });
 
+app.get('/announcement_data',async (req,res)=>{
+    let data=await announcements.find({})
+    console.log(data)
+    res.json({status:200,data:data})
+})
 // Admin routes or other logic can go here
 // Example:
 app.use('/admin', admin);

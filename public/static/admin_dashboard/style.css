@@ -155,7 +155,7 @@ body {
     margin-bottom: 1.5rem;
 }
 .search-input, .filter-select, .form-control {
-    padding: 0.6rem 0.8rem;
+    padding: 1rem 2rem;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     background-color: #fff;
@@ -428,4 +428,57 @@ body {
 
 .hide{
     display: none;
+}
+
+/* Enhanced Textarea */
+.form-control.textarea {
+    width: 100%;
+    min-height: 120px;        /* Increase default height */
+    padding: 0.8rem 1rem;     /* Comfortable padding */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;       /* Rounded corners */
+    background-color: var(--card-bg);
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    resize: vertical;         /* Allow vertical resizing only */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Focus state */
+.form-control.textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Placeholder style */
+.form-control.textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.logoutbutton {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.logout-admin {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout-admin:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
