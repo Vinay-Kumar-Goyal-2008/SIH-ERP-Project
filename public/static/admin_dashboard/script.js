@@ -384,7 +384,7 @@ async function announcements() {
             })
         })
         resp= await resp.json()
-        if (resp.json==200){
+        if (resp.status==200){
             alert('Announcement Posted')
         }else{
             alert('Some error occured')

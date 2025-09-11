@@ -103,7 +103,7 @@ router.post('/addadmdata', isadminlogged, async (req, res) => {
         let randomnum=Math.floor(Math.random()*1000)
         let adddata = await model.insertOne({
             username:studdata.name.slice(0,4)+randomnum.toString(),
-            password:studdata.name.slice(0,4)+studdata.email.slice(3,6)+studdata.branch.slice(1,),
+            password:studdata.name.slice(0,4)+studdata.email.slice(3,6),
             name: studdata.name,
             email: studdata.email,
             mobile: studdata.mobile,
@@ -204,7 +204,8 @@ router.post('/announcementpost',isadminlogged,async (req,res)=>{
     let date=new Date()
     let announcementdata=req.body.announcement
     let resp= await announcements.insertOne({ announcement: { desc: announcementdata, date: date } })
-    if (resp){
+    console.log(resp)
+    if (resp._id){
         res.json({status:200})
     }else{
         res.json({status:404})
