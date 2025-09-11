@@ -72,7 +72,7 @@ async function alladmissiondata() {
 function renderAdmissionRows(data, tbody, startIndex) {
     tbody.innerHTML = '';
     let count = 0;
-    for (let i = startIndex; i < data.length && count < 10; i++) {
+    for (let i = startIndex; i < data.length && count < 30; i++) {
         tbody.innerHTML += generateAdmissionRow(data[i]);
         count++;
     }
@@ -92,9 +92,9 @@ function generateAdmissionRow(student) {
 }
 
 function loadNextAdmissions(data) {
-    admshowcount += 10;
+    admshowcount += 30;
     if (admshowcount >= data.length) {
-        admshowcount = data.length - 10;
+        admshowcount = data.length - 30;
         if (admshowcount < 0) admshowcount = 0;
     }
     const tbody = document.querySelector('.admissionsstudentstable tbody');
@@ -102,13 +102,12 @@ function loadNextAdmissions(data) {
 }
 
 function loadPrevAdmissions(data) {
-    admshowcount -= 10;
+    admshowcount -= 30;
     if (admshowcount < 0) admshowcount = 0;
     const tbody = document.querySelector('.admissionsstudentstable tbody');
     renderAdmissionRows(data, tbody, admshowcount);
 }
 
-// Student information with proper pagination handling
 async function studentinfo() {
     let iddata = document.querySelector('.main2 input').value;
     let branch = document.querySelector('.main2 .branch').value;
