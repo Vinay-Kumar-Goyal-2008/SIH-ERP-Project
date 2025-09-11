@@ -7,7 +7,6 @@ const qr_code = require('qrcode');
 const PDFDocument = require("pdfkit");
 const path=require('path')
 
-// Middleware to check if student is logged in
 function islogged(req, res, next) {
     if (req.session.student) {
         return next();
@@ -16,18 +15,13 @@ function islogged(req, res, next) {
     }
 }
 
-// Store active tokens for attendance QR codes
 let activetokens = {};
 
-// Routes
-
-// Student Dashboard
 router.get('/dashboard/student', islogged, (req, res) => {
     const path = require('path');
     res.sendFile(path.join(__dirname,'..', 'public', 'static', 'dashboard', 'index.html'));
 });
 
-// Login submit check
 router.post('/loginsubmitcheck', async (req, res) => {
     let student = await model.findOne({ username: req.body.username, password: req.body.password });
     if (student) {
@@ -39,13 +33,11 @@ router.post('/loginsubmitcheck', async (req, res) => {
     }
 });
 
-// Get student data
 router.post('/student_data', islogged, async (req, res) => {
     let data = await model.findOne({ id: req.session.student });
     res.json({ status: 200, data: data });
 });
 
-// Edit profile data
 router.post('/editprofiledata', islogged, async (req, res) => {
     let resp = await model.updateOne(
         { id: req.session.student },
@@ -65,7 +57,6 @@ router.post('/editprofiledata', islogged, async (req, res) => {
     }
 });
 
-// Graph data
 router.get('/graph', islogged, async (req, res) => {
     let graphdata = {};
     let data = await model.findOne({ id: req.session.student });
@@ -76,7 +67,6 @@ router.get('/graph', islogged, async (req, res) => {
     res.json({ graph: resp.data.graph });
 });
 
-// Download fee receipt as PDF
 router.post('/downloadreceipt', islogged, async (req, res) => {
     let studdata = await model.findOne({ id: req.session.student });
     studdata.fees.payment_history.forEach(e => {
@@ -103,7 +93,6 @@ router.post('/downloadreceipt', islogged, async (req, res) => {
     });
 });
 
-// Pay fees
 router.post('/payfees', islogged, async (req, res) => {
     let updres = await model.updateOne({ id: req.session.student }, {
         $set: {
@@ -126,13 +115,11 @@ router.post('/payfees', islogged, async (req, res) => {
     }
 });
 
-// Logout
 router.post('/logout', islogged, (req, res) => {
     req.session.destroy();
     res.json({ status: 200 });
 });
 
-// Generate student QR code
 router.post('/studentqrcode', islogged, async (req, res) => {
     let data = await model.findOne({ id: req.body.id }, {
         _id: 0,
@@ -147,7 +134,6 @@ router.post('/studentqrcode', islogged, async (req, res) => {
     res.json({ qr: qr });
 });
 
-// Generate attendance QR code
 router.post('/attendanceqrcode', islogged, async (req, res) => {
     let token = crypto.randomBytes(8).toString('hex');
     let expiry = Date.now() + 10000;
@@ -160,7 +146,6 @@ router.post('/attendanceqrcode', islogged, async (req, res) => {
     res.json({ url: qr });
 });
 
-// Update attendance
 router.post('/updateattendance', async (req, res) => {
     let id = req.query.studid;
     let token = req.query.token;
@@ -179,7 +164,6 @@ router.post('/updateattendance', async (req, res) => {
     }
 });
 
-// Chatbot interaction
 router.post('/askchatbot', islogged, async (req, res) => {
     let prompt = req.body.prompt;
     let studdata = await model.findOne({ id: req.session.student });
@@ -188,7 +172,7 @@ router.post('/askchatbot', islogged, async (req, res) => {
     res.json({ ans: ans.data.ans });
 });
 
-// Cleanup expired tokens
+
 setInterval(() => {
     const now = Date.now();
     for (let t in activetokens) {
@@ -197,5 +181,6 @@ setInterval(() => {
         }
     }
 }, 10000);
+
 
 module.exports = router;

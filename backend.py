@@ -4,25 +4,34 @@ import io
 import matplotlib
 import matplotlib.pyplot as plt
 # import os
-# from dotenv import load_dotenv
-# from openai import OpenAI
-# load_dotenv('.env', override=True)
-# openai_api_key = os.getenv('OPENAI_API_KEY')
-# client = OpenAI(api_key = openai_api_key)
+# import requests
+
+
+# api_key = ''
+
+# GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateText"
+
 # def get_llm_response(prompt):
-#     completion = client.chat.completions.create(
-#         model="gpt-4o-mini",
-#         messages=[
+#     headers = {
+#         "Authorization": f"Bearer {api_key}",
+#         "Content-Type": "application/json"
+#     }
+
+#     data = {
+#         "contents": [
 #             {
-#                 "role": "system",
-#                 "content": "You are an AI assistant.",
-#             },
-#             {"role": "user", "content": prompt},
-#         ],
-#         temperature=0.0,
-#     )
-#     response = completion.choices[0].message.content
-#     return response
+#                 "text": prompt
+#             }
+#         ]
+#     }
+
+#     response = requests.post(GEMINI_URL, headers=headers, json=data)
+
+#     if response.status_code == 200:
+#         result = response.json()
+#         return result.get('candidates', [{}])[0].get('content', '')
+#     else:
+#         return f"Error {response.status_code}: {response.text}"
 matplotlib.use('Agg')
 app=Flask(__name__)
 
